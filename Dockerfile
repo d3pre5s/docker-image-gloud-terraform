@@ -6,8 +6,7 @@ ENV HELM_VERSION=3.7.1
 
 ENV PATH /google-cloud-sdk/bin:$PATH
 
-RUN mkdir ./creds && \
-    mkdir -p ~/.ssh && touch ~/.ssh/known_hosts
+RUN mkdir -p ~/.ssh && touch ~/.ssh/known_hosts
 RUN apk --no-cache add \
         py3-pip \
         curl \
