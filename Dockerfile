@@ -9,19 +9,14 @@ ENV PATH /google-cloud-sdk/bin:$PATH
 RUN mkdir ./creds && \
     mkdir -p ~/.ssh && touch ~/.ssh/known_hosts
 RUN apk --no-cache add \
-        curl \
-        python3 \
         py3-pip \
-        py3-crcmod \
-        bash \
-        libc6-compat \
+        curl \
         openssh-client \
         openssl \
-        apache2-utils \
         git && \
     pip install jinja2
 
-RUN curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+RUN curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | ash
 #RUN wget --quiet https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz \
 #    && tar -xzf helm-v${HELM_VERSION}-linux-amd64.tar.gz \
 #    && mv linux-amd64/helm /usr/bin \
